@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { HiMenu , HiX} from "react-icons/hi";
 
 const navItems = [
@@ -10,6 +10,7 @@ const navItems = [
 ];
 
 const Navbar = () => {
+    const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false);
 
   const linkClasses = ({ isActive } : {isActive : boolean}) =>
@@ -37,7 +38,7 @@ const Navbar = () => {
 
           {/* Desktop Sign Up */}
           <div className="hidden md:block">
-            <button className="px-6 py-2 border-2 lg:text-xl xl:text-2xl text-white cursor-pointer border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
+            <button onClick={()=>navigate("/register")} className="px-6 py-2 border-2 lg:text-xl xl:text-2xl text-white cursor-pointer border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
               Sign Up
             </button>
           </div>
@@ -71,7 +72,7 @@ const Navbar = () => {
               </NavLink>
             ))}
 
-            <button className="w-full px-6 py-2 border-2 lg:text-xl xl:text-2xl cursor-pointer text-white border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
+            <button onClick={()=>navigate("/register")} className="w-full px-6 py-2 border-2 lg:text-xl xl:text-2xl cursor-pointer text-white border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
               Sign Up
             </button>
           </div>

@@ -1,8 +1,11 @@
 
 import FeatureCard from "./_components/FeatureCard";
 import AppButton from "./_components/AppButton";
+import { useNavigate } from "react-router";
 
 const Home = () => {
+  const navigate = useNavigate()
+
   const features = [
     {
       color: "#17EA8D",
@@ -47,11 +50,11 @@ const Home = () => {
 
       {/* CTA Buttons */}
      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <AppButton color="#F80B58">
+        <AppButton onClick={()=>navigate("/register")} color="#F80B58">
           SIGN UP
         </AppButton>
 
-        <AppButton color="#FF9200">
+        <AppButton  onClick={()=>navigate("/partners")} color="#FF9200">
           PARTNERS
         </AppButton>
       </div>

@@ -1,5 +1,7 @@
 import type React from "react"
 import Categories from "./_components/Categories"
+import AppButton from "../Home/_components/AppButton"
+import { useNavigate } from "react-router"
 
 export type Category = {
   name: string
@@ -8,6 +10,7 @@ export type Category = {
 }
 
 const Partners: React.FC = () => {
+const navigate = useNavigate()
 
   const partnerCategories : Category[] = [
     {
@@ -78,9 +81,9 @@ const Partners: React.FC = () => {
 
         {/* Sign Up Button */}
         <div className="flex justify-center mt-16">
-          <button className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition-colors duration-200">
-            SIGN UP
-          </button>
+          <AppButton onClick={()=>navigate("/register")} color="#F80B58">
+          SIGN UP
+        </AppButton>
         </div>
       </div>
     </div>
