@@ -2,6 +2,8 @@ import type React from "react"
 import { useState } from "react"
 import StepOne from "./_components/StepOne"
 import StepTwo from "./_components/StepTwo"
+import PaymentProcessing from "./_payments/PaymentProcessingProps"
+import PaymentSuccess from "./_payments/PaymentSuccess"
 
 
 interface FormData {
@@ -20,6 +22,11 @@ interface FormData {
 
 const Register: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1)
+
+    const [showProcessing, setShowProcessing] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false)
+  const [membershipId, setMembershipId] = useState("")
+
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -49,14 +56,39 @@ const Register: React.FC = () => {
   const handleBack = () => {
     setCurrentStep(1)
   }
-
   const handleSubmit = () => {
-    console.log("Form submitted:", formData)
-    alert("Registration completed!")
+    setShowProcessing(true)
+
+    // Simulate payment processing
+    setTimeout(() => {
+      setShowProcessing(false)
+      setMembershipId("107242")
+      setShowSuccess(true)
+    }, 5000)
   }
 
+  const handleSuccessClose = () => {
+    setShowSuccess(false)
+    // Reset form for next registration
+    setCurrentStep(1)
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      teudatZehut: "",
+      dateOfAliyah: "",
+      cardholderName: "",
+      cardNumber: "",
+      expireDate: "",
+      cvc: "",
+      paymentMethod: "stripe",
+    })
+  }
+
+
   return (
-    <div className="min-h-[50vh] flex flex-col  text-white items-center justify-center p-4">
+    <div  className="min-h-[50vh] flex flex-col  text-white items-center justify-center p-4">
          <h1 className="text-5xl font-black italic text-center mb-12">BECOME A MEMBER</h1>
       <div className="w-full max-w-3xl bg-[#191919] p-6 rounded-3xl ">
         <div className="mb-8">
@@ -74,7 +106,7 @@ const Register: React.FC = () => {
                   className="h-1 bg-[#F80B58] mt-2 transition-all duration-500 ease-out rounded-full"
                   style={{ width: currentStep >= 1 ? "100%" : "0px" }}
                 ></div>
-                   <p className="text-sm font-semibold my-2">Registrant details</p>
+                   <p className="text-sm lg:text-base font-semibold my-2">Registrant details</p>
               </div>
               <div className="relative w-full">
 <div className="relative w-full bg-black">
@@ -88,7 +120,7 @@ const Register: React.FC = () => {
 </div>
 
 
-                   <p className={`text-sm font-semibold my-2 ${currentStep === 2 ? "text-white" : "text-gray-500"}`}>
+                   <p className={`text-sm lg:text-base font-semibold my-2 ${currentStep === 2 ? "text-white" : "text-gray-500"}`}>
                   Pay & register
                 </p>
               </div>
@@ -102,6 +134,8 @@ const Register: React.FC = () => {
         ) : (
           <StepTwo data={formData} onChange={handleStepTwoChange} onBack={handleBack} onSubmit={handleSubmit} />
         )}
+         <PaymentProcessing open={showProcessing} onClose={handleSuccessClose}/>
+        <PaymentSuccess open={showSuccess} onClose={handleSuccessClose} membershipId={membershipId} />
       </div>
     </div>
   )

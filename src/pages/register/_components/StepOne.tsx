@@ -32,7 +32,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
         {/* First Name & Last Name */}
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-semibold mb-2">First Name: *</label>
+            <label className="block text-sm lg:text-base font-semibold mb-2">First Name: *</label>
             <Input
               type="text"
               placeholder="first name"
@@ -42,7 +42,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold mb-2">Last Name: *</label>
+            <label className="block text-sm lg:text-base font-semibold mb-2">Last Name: *</label>
             <Input
               type="text"
               placeholder="last name"
@@ -56,7 +56,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
         {/* Email & Phone */}
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-semibold mb-2">Email: *</label>
+            <label className="block text-sm lg:text-base font-semibold mb-2">Email: *</label>
             <Input
               type="email"
               placeholder="example@email.com"
@@ -67,7 +67,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
             <p className="text-xs text-orange-400 mt-2">Your membership id will be sent in this email</p>
           </div>
           <div>
-            <label className="block text-sm font-semibold mb-2">Phone Number: (optional)</label>
+            <label className="block text-sm lg:text-base font-semibold mb-2">Phone Number: (optional)</label>
             <Input
               type="tel"
               placeholder="IL (+972) -"
@@ -81,7 +81,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
         {/* Teudat Zehut & Date of Aliyah */}
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-semibold mb-2">Teudat Zehut: *</label>
+            <label className="block text-sm lg:text-base font-semibold mb-2">Teudat Zehut: *</label>
             <Input
               type="text"
               placeholder="- - - - - - - -"
@@ -91,7 +91,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold mb-2">Date of Aliyah: *</label>
+            <label className="block text-sm lg:text-base font-semibold mb-2">Date of Aliyah: *</label>
             <Input
               type="date"
               placeholder="Enter Date"
