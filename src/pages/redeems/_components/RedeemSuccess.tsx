@@ -1,5 +1,5 @@
 import { Dialog, DialogContent } from '@radix-ui/react-dialog'
-import successPic from "@/assets/payment/dialog/success.png";
+import successPic from "@/assets/payment/dialog/redeemSucees.png";
 import { HiX } from 'react-icons/hi';
 
 type RedeemSuccessProps = {

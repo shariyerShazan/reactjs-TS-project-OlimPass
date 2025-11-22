@@ -23,7 +23,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="text-3xl lg:text-4xl xl:text-[40px] text-white font-bold tracking-tight">
+          <div onClick={()=>navigate("/")} className="text-3xl lg:text-4xl xl:text-[40px] text-white font-bold tracking-tight cursor-pointer">
             OLIM PASS.
           </div>
 
