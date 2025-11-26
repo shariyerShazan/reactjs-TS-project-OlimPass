@@ -8,15 +8,15 @@ const Home = () => {
 
   const features = [
     {
-      color: "#17EA8D",
+      color: "#000000",
       text: "An exclusive membership for new residents in Israel.",
     },
     {
-      color: "#17CAEA",
+      color: "#000000",
       text: "Receive ongoing discounts at gyms, coffee shops, restaurants, and local businesses for your first 3 years in Tel Aviv.",
     },
     {
-      color: "#FFAC3D",
+      color: "#000000",
       text: "Browse our partners and sign up with your Teudat Zehut.",
     },
   ];
@@ -40,13 +40,15 @@ const Home = () => {
 
 
       {/* Feature Cards */}
-      <div className="flex flex-wrap justify-center gap-2.5 mb-12">
+     <div className="flex justify-center">
+       <div className="grid grid-cols-1 md:grid-cols-3 justify-center items-center text-center gap-2.5 mb-12">
         {features.map((item, index) => (
           <FeatureCard key={index} color={item.color}>
             {item.text}
           </FeatureCard>
         ))}
       </div>
+     </div>
 
       {/* CTA Buttons */}
      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

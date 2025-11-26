@@ -10,6 +10,7 @@ const navItems = [
 ];
 
 const Navbar = () => {
+  const user = false
     const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,23 +25,33 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div onClick={()=>navigate("/")} className="text-3xl lg:text-4xl xl:text-[40px] text-white font-bold tracking-tight cursor-pointer">
-            OLIM PASS.
+            OLIM PASS
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          {
+            user &&  <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <NavLink key={item.to} to={item.to} className={linkClasses}>
                 {item.label}
               </NavLink>
             ))}
           </div>
+          }
+         
 
           {/* Desktop Sign Up */}
-          <div className="hidden md:block">
-            <button onClick={()=>navigate("/register")} className="px-6 py-2 border-2 lg:text-xl xl:text-2xl text-white cursor-pointer border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
-              Sign Up
-            </button>
+          <div className="flex gap-3 justify-center items-center">
+              <div className="hidden md:block">
+                  <button onClick={()=>navigate("/register")} className="px-6 py-2 border-2 lg:text-xl xl:text-2xl text-white cursor-pointer border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
+                    Sign Up
+                  </button>
+              </div>
+              <div className="hidden md:block">
+                <button onClick={()=>navigate("/contact")} className="px-6 py-2 border-2 lg:text-xl xl:text-2xl text-white cursor-pointer border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
+                  Contact
+                </button>
+              </div>
           </div>
 
           {/* Mobile Toggle */}

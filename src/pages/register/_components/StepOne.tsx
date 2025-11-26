@@ -30,7 +30,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
       {/* Form Fields */}
       <div className="space-y-6">
         {/* First Name & Last Name */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm lg:text-base font-semibold mb-2">First Name: *</label>
             <Input
@@ -54,7 +54,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
         </div>
 
         {/* Email & Phone */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm lg:text-base font-semibold mb-2">Email: *</label>
             <Input
@@ -79,7 +79,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
         </div>
 
         {/* Teudat Zehut & Date of Aliyah */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm lg:text-base font-semibold mb-2">Teudat Zehut: *</label>
             <Input

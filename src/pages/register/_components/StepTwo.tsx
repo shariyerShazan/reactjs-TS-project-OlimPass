@@ -74,7 +74,7 @@ const StepTwo: React.FC<StepTwoProps> = ({ data, onChange, onBack, onSubmit }) =
       {/* Payment Method */}
       <div className="mb-8">
         <h3 className="text-sm lg:text-base font-semibold mb-4">Payment Method</h3>
-        <div className="flex gap-6 items-center">
+        <div className="flex flex-wrap items-center gap-6 items-center">
           {[
             { id: "stripe", label: "stripe", icon: stripeImg },
             { id: "visa", label: "VISA", icon: visaImg },
@@ -149,7 +149,7 @@ const StepTwo: React.FC<StepTwoProps> = ({ data, onChange, onBack, onSubmit }) =
 </div>
 
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm lg:text-base font-semibold mb-2">Expire Date:</label>
             <Input
@@ -182,7 +182,7 @@ const StepTwo: React.FC<StepTwoProps> = ({ data, onChange, onBack, onSubmit }) =
 />
 
 
-        <span className="text-sm text-[#2b2b2b]">I agree to the privacy policy & terms of service.</span>
+        <span className="text-sm ">I agree to the privacy policy & terms of service.</span>
       </div>
 
       {/* Buttons */}
