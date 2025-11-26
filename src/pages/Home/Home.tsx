@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <main className="pb-20 mt-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
       {/* Hero Section */}
-<div className="text-center mb-16 text-white ">
+<div className="text-center mb-12 lg:mb-16 text-white ">
   <h1
   //      style={{
   //   fontFamily: '"ABC Diatype Ultra", sans-serif',
@@ -37,11 +37,11 @@ const Home = () => {
   //   color: "#FFFFFF", // text color
   //   textShadow: "0 0 0 #FFFFFF, 3px 0 0 #FFFFFF, 0 3px 0 #FFFFFF, 3px 3px 0 #FFFFFF"
   // }} 
-  className="text-5xl  md:text-6xl lg:text-7xl xl:text-8xl font-abc-heavy-3  bold-stroke-3  leading-7 sm:leading-8 md:leading-10 lg:leading-14 xl:leading-16 tracking-[1px] mb-0">
+  className="text-5xl  md:text-6xl lg:text-7xl xl:text-8xl font-abc-heavy-3  bold-stroke-3 leading-9 md:leading-12 lg:leading-15 xl:leading-19  tracking-[1px] mb-0">
     OLIM PASS
   </h1>
 
-  <h2 className="text-3xl md:text-5xl lg:text-[65px] xl:text-[80px] font-abc-regular leading-8 sm:leading-10 md:leading-12 lg:leading-16 xl:leading-18 tracking-[-0.07em] mt-1">
+  <h2 className="text-3xl md:text-5xl lg:text-[65px] xl:text-[80px] font-abc-regular leading-9 md:leading-12 lg:leading-15 xl:leading-19 tracking-[1px] mt-1">
     <span className="block">WELCOME TO ISRAEL,</span>
     <span className="block">NOW HERE'S A DISCOUNT.</span>
   </h2>
