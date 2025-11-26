@@ -117,7 +117,7 @@ const StepTwo: React.FC<StepTwoProps> = ({ data, onChange, onBack, onSubmit }) =
             placeholder="Enter name on card"
             value={data.cardholderName}
             onChange={(e) => handleChange("cardholderName", e.target.value)}
-            className="bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
+            className="!bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
           />
         </div>
 
@@ -141,7 +141,7 @@ const StepTwo: React.FC<StepTwoProps> = ({ data, onChange, onBack, onSubmit }) =
             const formatted = segments.join(" ").trim();
             handleChange("cardNumber", formatted);
           }}
-          className="bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600 text-center"
+          className="!bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600 text-center"
         />
       );
     })}
@@ -157,7 +157,7 @@ const StepTwo: React.FC<StepTwoProps> = ({ data, onChange, onBack, onSubmit }) =
               placeholder="Enter Date"
               value={data.expireDate}
               onChange={(e) => handleChange("expireDate", e.target.value)}
-              className="bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
+              className="!bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
             />
           </div>
           <div>
@@ -168,7 +168,7 @@ const StepTwo: React.FC<StepTwoProps> = ({ data, onChange, onBack, onSubmit }) =
               maxLength={3}
               value={data.cvc}
               onChange={(e) => handleChange("cvc", e.target.value)}
-              className="bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
+              className="!bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
             />
           </div>
         </div>
@@ -190,7 +190,7 @@ const StepTwo: React.FC<StepTwoProps> = ({ data, onChange, onBack, onSubmit }) =
         <Button
           variant="outline"
           onClick={onBack}
-          className="px-8 py-2 rounded-full bg-white text-black font-semibold hover:bg-gray-200 cursor-pointer"
+          className="px-8 py-2 rounded-full !bg-white text-black font-semibold hover:bg-gray-200 cursor-pointer"
         >
           Back
         </Button>

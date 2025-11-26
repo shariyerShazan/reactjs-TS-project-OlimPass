@@ -1,17 +1,145 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-@font-face {
+/* Normal */
+/* @font-face {
   font-family: "ABC Diatype Unlicensed Trial";
   src: url("/fonts/ABC-Diatype-Unlicensed-Trial.woff2") format("woff2"),
        url("/fonts/ABC-Diatype-Unlicensed-Trial.woff") format("woff");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
+} */
+
+/* Ultra Italic */
+/* @font-face {
+  font-family: "ABC Diatype Unlicensed Trial";
+  src: url("/fonts/ABC-Diatype-Unlicensed-Trial-UltraItalic.woff2") format("woff2"),
+       url("/fonts/ABC-Diatype-Unlicensed-Trial-UltraItalic.woff") format("woff");
+  font-weight: 1000;  
+  font-style: italic;
+} */
+/* Added ABC Diatype custom fonts */
+
+
+/* globals.css or styles.css */
+
+@font-face {
+  font-family: "ABC Diatype";
+  src: url("/fonts/ABCDiatype-BoldItalic-Trial.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
 }
+
+@font-face {
+  font-family: "ABC Diatype";
+  src: url("/fonts/ABCDiatype-HeavyItalic-Trial.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "ABC Diatype";
+  src: url("/fonts/ABCDiatype-LightItalic-Trial.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "ABC Diatype";
+  src: url("/fonts/ABCDiatype-MediumItalic-Trial.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "ABC Diatype";
+  src: url("/fonts/ABCDiatype-RegularItalic-Trial.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "ABC Diatype Ultra";
+  src: url("/fonts/ABCDiatype-UltraItalic-Trial.otf") format("opentype");
+
+}
+
+/* Tailwind utility classes */
+@layer utilities {
+  .font-abc-light   { font-family: "ABC Diatype", sans-serif; font-weight: 300; font-style: italic; }
+  .font-abc-regular { font-family: "ABC Diatype", sans-serif; font-weight: 400; font-style: italic; }
+  .font-abc-medium  { font-family: "ABC Diatype", sans-serif; font-weight: 500; font-style: italic; }
+  .font-abc-bold    { font-family: "ABC Diatype", sans-serif; font-weight: 700; font-style: italic; }
+  .font-abc-heavy   { font-family: "ABC Diatype", sans-serif; font-weight: 900; font-style: italic; }
+  .font-abc-heavy-3   { font-family: "ABC Diatype Ultra", sans-serif; font-weight: 1000; font-style: italic; }
+    .font-abc-ultra {
+    font-family: "ABC Diatype Ultra", sans-serif;
+    font-weight: 1000;
+    font-style: italic;
+    color: #FFFFFF;
+    /* Uniform shadow all around to simulate extra bold */
+    text-shadow:
+      -1px -1px 0 #FFFFFF,
+       1px -1px 0 #FFFFFF,
+      -1px  1px 0 #FFFFFF,
+       1px  1px 0 #FFFFFF,
+       0 -1px 0 #FFFFFF,
+       0  1px 0 #FFFFFF,
+      -1px  0 0 #FFFFFF,
+       1px  0 0 #FFFFFF;
+  }
+   .font-abc-ultra-2 {
+    font-family: "ABC Diatype Ultra", sans-serif;
+    font-weight: 1000;
+    font-style: italic;
+    color: #D405D9;
+    /* Uniform shadow all around to simulate extra bold */
+    text-shadow:
+      -1px -1px 0 #D405D9,
+       1px -1px 0 #D405D9,
+      -1px  1px 0 #D405D9,
+       1px  1px 0 #D405D9,
+       0 -1px 0 #D405D9,
+       0  1px 0 #D405D9,
+      -1px  0 0 #D405D9,
+       1px  0 0 #D405D9;
+  }
+}
+
+.bold-stroke {
+  -webkit-text-stroke: 3px #fff; /* thickness + color */
+  color: #fff;
+}
+
+.bold-stroke-3 {
+  -webkit-text-stroke: 5px #fff; /* thickness + color */
+  color: #fff;
+} 
+
+.bold-stroke-2 {
+  -webkit-text-stroke: 5px #D405D9; /* thickness + color */
+  color: #D405D9;
+}
+
+
+
+.bold-fake {
+  position: relative;
+  color: #fff;
+}
+
+.bold-fake::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 1px; /* adjust offset */
+  color: #fff;
+}
+
 body {
-  font-family: "ABC Diatype Unlicensed Trial", sans-serif;
+  font-family: "ABC Diatype", sans-serif;
 }
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

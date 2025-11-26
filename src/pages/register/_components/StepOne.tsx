@@ -38,7 +38,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
               placeholder="first name"
               value={data.firstName}
               onChange={(e) => handleChange("firstName", e.target.value)}
-              className="bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
+              className="!bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
             />
           </div>
           <div>
@@ -48,7 +48,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
               placeholder="last name"
               value={data.lastName}
               onChange={(e) => handleChange("lastName", e.target.value)}
-              className="bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
+              className="!bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
             />
           </div>
         </div>
@@ -62,7 +62,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
               placeholder="example@email.com"
               value={data.email}
               onChange={(e) => handleChange("email", e.target.value)}
-              className="bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
+              className="!bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
             />
             <p className="text-xs text-orange-400 mt-2">Your membership id will be sent in this email</p>
           </div>
@@ -73,13 +73,13 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
               placeholder="IL (+972) -"
               value={data.phone}
               onChange={(e) => handleChange("phone", e.target.value)}
-              className="bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
+              className="!bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
             />
           </div>
         </div>
 
         {/* Teudat Zehut & Date of Aliyah */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm lg:text-base font-semibold mb-2">Teudat Zehut: *</label>
             <Input
@@ -87,7 +87,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
               placeholder="- - - - - - - -"
               value={data.teudatZehut}
               onChange={(e) => handleChange("teudatZehut", e.target.value)}
-              className="bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
+              className="!bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
             />
           </div>
           <div>
@@ -97,7 +97,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
               placeholder="Enter Date"
               value={data.dateOfAliyah}
               onChange={(e) => handleChange("dateOfAliyah", e.target.value)}
-              className="bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
+              className="!bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
             />
           </div>
         </div>
@@ -107,7 +107,7 @@ const StepOne: React.FC<StepOneProps> = ({ data, onChange, onContinue }) => {
       <div className="flex items-center justify-between mt-12">
         <Button
           variant="outline"
-          className="px-8 py-2 rounded-full cursor-pointer bg-white text-black font-semibold hover:bg-gray-200"
+          className="px-8 py-2 rounded-full cursor-pointer !bg-white text-black font-semibold hover:bg-gray-200"
         >
           Cancel
         </Button>

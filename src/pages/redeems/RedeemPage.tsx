@@ -13,23 +13,23 @@ export default function RedeemPage() {
   return (
     <div className=" bg-[#0B0003] text-white flex flex-col items-center p-6">
       {/* Header */}
-      <h1 className="text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-wide mt-10 text-center">
+      <h1 className="text-5xl md:text-6xl lg:txet-7xl xl:text-8xl font-abc-ultra-3 bold-stroke-3   tracking-[-2px] mt-10 text-center">
         MEMBERSHIP VALIDATION
       </h1>
-      <p className="text-base lg:text-lg text-gray-400 mt-3 text-center max-w-lg">
+      <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200 mt-3 text-center max-w-4xl">
         Validate ID, browse partners and redeem ongoing discounts at gyms, coffee shops,
         restaurants, and local businesses for your first 3 years in Tel Aviv.
       </p>
 
       {/* Form */}
-      <div className="bg-[#191919] mt-8 p-6 rounded-xl w-full max-w-2xl space-y-6 shadow-lg">
+      <div className="bg-[#191919] mt-8 p-6 rounded-xl w-full max-w-4xl space-y-6 shadow-lg">
         <div>
           <Label className="text-sm lg:text-base font-semibold mb-2 block">
             Enter your Membership ID:
           </Label>
           <Input
             placeholder="Enter your 5 digit id"
-            className="bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
+            className="!bg-[#2b2b2b] border-0 focus:!ring-1 focus:!ring-[#F80B58] text-white placeholder-gray-600"
           />
         </div>
 
@@ -42,10 +42,10 @@ export default function RedeemPage() {
 
     <div className="bg-[#1E1E1E] rounded-lg p-0.5">
       <select
-        className="w-full bg-[#2B2B2B] border border-transparent rounded-lg px-3 py-2
+        className="w-full !bg-[#2B2B2B] border border-transparent rounded-lg px-3 py-2
                    text-white text-sm focus:ring-1 focus:ring-[#F80B58] focus:outline-none"
       >
-        <option className="text-black text-sm">Fitness & Sports</option>
+        <option className="!text-black text-sm">Fitness & Sports</option>
       </select>
     </div>
   </div>

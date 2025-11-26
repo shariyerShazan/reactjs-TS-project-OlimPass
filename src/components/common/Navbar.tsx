@@ -24,7 +24,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div onClick={()=>navigate("/")} className="text-3xl lg:text-4xl xl:text-[40px] text-white font-bold tracking-tight cursor-pointer">
+          <div onClick={()=>navigate("/")} className="text-2xl md:text-3xl lg:text-[40px] font-abc-ultra-3 bold-stroke tracking-[2px] text-white font-bold cursor-pointer">
             OLIM PASS
           </div>
 
@@ -43,12 +43,12 @@ const Navbar = () => {
           {/* Desktop Sign Up */}
           <div className="flex gap-3 justify-center items-center">
               <div className="hidden md:block">
-                  <button onClick={()=>navigate("/register")} className="px-6 py-2 border-2 lg:text-xl xl:text-2xl text-white cursor-pointer border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
+                  <button onClick={()=>navigate("/register")} className="px-6 py-2 border text-lg text-white cursor-pointer border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
                     Sign Up
                   </button>
               </div>
               <div className="hidden md:block">
-                <button onClick={()=>navigate("/contact")} className="px-6 py-2 border-2 lg:text-xl xl:text-2xl text-white cursor-pointer border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
+                <button onClick={()=>navigate("/contact")} className="px-6 py-2 border text-lg text-white cursor-pointer border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
                   Contact
                 </button>
               </div>
@@ -68,7 +68,9 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden pb-4 border-t border-white/10 pt-4 space-y-3">
-            {navItems.map((item) => (
+            {
+              user && <div>
+                {navItems.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
@@ -82,10 +84,17 @@ const Navbar = () => {
                 {item.label}
               </NavLink>
             ))}
+              </div>
+            }
 
-            <button onClick={()=>navigate("/register")} className="w-full px-6 py-2 border-2 lg:text-xl xl:text-2xl cursor-pointer text-white border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
+            <div className="flex flex-col w-32 gap-3">
+              <button onClick={()=>navigate("/register")} className=" px-6 py-2 border-2 text-lg cursor-pointer text-white border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
               Sign Up
             </button>
+             <button onClick={()=>navigate("/contact")} className=" px-6 py-2 border-2 text-lg cursor-pointer text-white border-white rounded-full hover:bg-white hover:text-black transition font-semibold">
+              Contact
+            </button>
+            </div>
           </div>
         )}
       </div>
