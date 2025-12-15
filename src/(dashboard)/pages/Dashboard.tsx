@@ -9,6 +9,7 @@ import DRegistrations from "../components/Registrations"
 import DRedeems from "../components/Redeems"
 import axios from "axios"
 import { BASE_URL } from "@/lib/baseUrl"
+import { Link } from "react-router"
 
 export default function Dashboard() {
   const { user } = useAuth()
@@ -39,7 +40,8 @@ const handleTabChange = (value: string) => {
       <nav className="shadow-md bg-[#1a1a1a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <h1 className="text-2xl font-bold text-white">Admin Dashboard</h1>
+            <h1 className="text-2xl font-bold text-white">Admin Dashboard <span className="ml-3"> (<Link to="/">OLIM PASS</Link></span>)</h1>
+
             <div className="flex items-center space-x-4">
               <span className="text-sm text-gray-300">{user?.email}</span>
               <button
