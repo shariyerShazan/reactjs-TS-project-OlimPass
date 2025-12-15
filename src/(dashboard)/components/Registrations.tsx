@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect } from "react"
 import axios from "axios"
 import DSkeletonTable from "./SkeletonTable"
@@ -33,31 +31,45 @@ export default function DRegistrations() {
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState(1)
   const [limit] = useState(10)
+  const [activeFilter, setActiveFilter] = useState<"all" | "active" | "inactive">("all")
 
   useEffect(() => {
     fetchRegistrations()
-  }, [page])
+  }, [page, activeFilter])
 
-const fetchRegistrations = async () => {
-  try {
-    setLoading(true)
-    const response = await axios.get(`${BASE_URL}/register?page=${page}&limit=${limit}`, {
-      withCredentials: true,
-    })
-    console.log(response.data) 
-    setPaginationData(response.data)
-  } catch (err) {
-    console.error("Failed to fetch registrations", err)
-  } finally {
-    setLoading(false)
+  const fetchRegistrations = async () => {
+    try {
+      setLoading(true)
+
+      let url = `${BASE_URL}/register?page=${page}&limit=${limit}`
+      if (activeFilter === "active") url += "&isActive=true"
+      if (activeFilter === "inactive") url += "&isActive=false"
+
+      const response = await axios.get(url, { withCredentials: true })
+      setPaginationData(response.data)
+    } catch (err) {
+      console.error("Failed to fetch registrations", err)
+    } finally {
+      setLoading(false)
+    }
   }
-}
-
 
   return (
     <div className="bg-[#1a1a1a] shadow-md rounded-lg overflow-hidden">
-      <div className="px-6 py-4 border-b border-gray-700">
+      <div className="px-6 py-4 border-b border-gray-700 flex items-center justify-between">
         <h2 className="text-lg font-semibold text-white">Registrations</h2>
+        <select
+          value={activeFilter}
+          onChange={(e) => {
+            setPage(1)
+            setActiveFilter(e.target.value as "all" | "active" | "inactive")
+          }}
+          className="bg-[#121212] text-gray-300 px-3 py-1 rounded-md cursor-pointer"
+        >
+          <option value="all">All</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
       </div>
 
       {loading ? (

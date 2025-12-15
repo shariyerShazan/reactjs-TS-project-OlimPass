@@ -172,7 +172,7 @@ export default function DPartners() {
                   <td className="px-6 py-4 text-right text-sm">
                     <button
                       onClick={() => handleDeletePartner(partner.id)}
-                      className="text-red-500 hover:text-red-700 transition-colors"
+                      className="text-red-500 hover:text-red-700 transition-colors cursor-pointer"
                     >
                       Delete
                     </button>

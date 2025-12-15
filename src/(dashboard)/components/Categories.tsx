@@ -150,7 +150,7 @@ const handleDelete = async (id: string) => {
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
                     <button
                       onClick={() => handleDelete(category.id)}
-                      className="text-red-500 hover:text-red-700 transition-colors"
+                      className="text-red-500 hover:text-red-700 transition-colors cursor-pointer"
                     >
                       Delete
                     </button>
