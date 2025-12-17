@@ -103,9 +103,9 @@ const PaymentSuccess: React.FC<PaymentSuccessProps> = ({ open, onClose, membersh
 
           {/* Buttons */}
           <div className="space-y-3 pt-4">
-            <Button className="w-full bg-[#e1e1e1] text-black hover:bg-gray-200 cursor-pointer rounded-full font-semibold">
+            {/* <Button className="w-full bg-[#e1e1e1] text-black hover:bg-gray-200 cursor-pointer rounded-full font-semibold">
               Download as PDF <GoDownload size={22}/>
-            </Button>
+            </Button> */}
             <Button onClick={()=> navigate("/redeem")} className="w-full bg-[#F80B58] text-white hover:bg-pink-500 cursor-pointer rounded-full font-semibold">
               Redeem First Discount
             </Button>

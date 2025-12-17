@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import Swal from "sweetalert2"
 import { BASE_URL } from "@/lib/baseUrl"
+import DSkeletonTable from "./SkeletonTable"
 
 
 
@@ -10,6 +11,7 @@ interface Partner {
   name: string
   discount: string
   categoryId: string
+  maxRedeems: number
 }
 
 interface Category {
@@ -23,6 +25,7 @@ export default function DPartners() {
   const [selectedCategoryId, setSelectedCategoryId] = useState("")
     const [createLoading, setCreateLoading] = useState(false)
   const [name, setName] = useState("")
+  const [maxRedeems, setMaxRedeems]= useState("")
   const [discount, setDiscount] = useState("")
   const [loading, setLoading] = useState(true)
   const [success, setSuccess] = useState("")
@@ -54,13 +57,15 @@ export default function DPartners() {
       await axios.post(`${BASE_URL}/partners`, {
         name,
         discount,
-        categoryId: selectedCategoryId
+        categoryId: selectedCategoryId ,
+        maxRedeems: parseInt(maxRedeems)
       }, { withCredentials: true })
 
       setSuccess("Partner created successfully")
       setName("")
       setDiscount("")
       fetchCategories()
+      setMaxRedeems("")
       setCreateLoading(false)
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to create partner")
@@ -140,6 +145,17 @@ export default function DPartners() {
               <option key={cat.id} value={cat.id}>{cat.name}</option>
             ))}
           </select>
+
+          <input
+                type="text"
+                value={maxRedeems}
+                onChange={(e) => setMaxRedeems(e.target.value)}
+                placeholder="Max Redeems (e.g., 5)"
+                required
+                className="px-3 py-2 bg-[#121212] border border-[#F80B58]/40 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#F80B58]"
+            />
+
+
           <button disabled={createLoading} className="col-span-full sm:col-auto px-6 py-2 bg-[#F80B58] rounded-md text-white hover:bg-[#F80B5899] transition-colors duration-200 cursor-pointer disabled:cursor-not-allowed">
              {createLoading ? "Creating..." : "Create Partner"}
           </button>
@@ -152,7 +168,7 @@ export default function DPartners() {
           <h2 className="text-lg font-semibold text-white">Partners</h2>
         </div>
         {loading ? (
-          <div className="p-6 text-gray-300">Loading...</div>
+                  <DSkeletonTable rows={5} columns={5} />
         ) : (
           <table className="min-w-full divide-y divide-gray-700">
             <thead className="bg-[#121212]">
@@ -160,6 +176,7 @@ export default function DPartners() {
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Name</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Discount</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Category</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Max Redeems</th>
                 <th className="px-6 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">Actions</th>
               </tr>
             </thead>
@@ -169,6 +186,7 @@ export default function DPartners() {
                   <td className="px-6 py-4 text-sm text-white">{partner.name}</td>
                   <td className="px-6 py-4 text-sm text-gray-400">{partner.discount}</td>
                   <td className="px-6 py-4 text-sm text-gray-400">{selectedCategory.name}</td>
+                  <td className="px-6 py-4 text-sm text-gray-400">{partner.maxRedeems}</td>
                   <td className="px-6 py-4 text-right text-sm">
                     <button
                       onClick={() => handleDeletePartner(partner.id)}

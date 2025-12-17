@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import { useEffect } from "react";
 import useGetCategories, { type Category as ApiCategory } from "@/hooks/useGetCategories";
 import { toast } from "react-toastify";
-import Loading from "@/components/common/Loading";
+// import Loading from "@/components/common/Loading";
 import CategoriesSkeleton from "./_components/CategoriesSkeleton";
 
 interface UIPartnerCategory {
@@ -34,7 +34,10 @@ const Partners: React.FC = () => {
     return {
       name: cat.name,
       color: colors[index % colors.length],
-      businesses: cat.partners.map((partner) => `${partner.name} - ${partner.discount}`),
+      businesses: cat.partners.map(
+          (partner) =>
+            `${partner?.name} - ${partner?.discount} - Available ${partner?.maxRedeems} times`
+        ),
     };
   });
 
@@ -45,7 +48,7 @@ const Partners: React.FC = () => {
           PARTNERS
         </h1>
 
-        {loading ? <CategoriesSkeleton /> : <Categories partnerCategories={partnerCategories} />}
+        {loading ? <CategoriesSkeleton /> : categories.length === 0 ? <div className="text-center text-gray-400 py-10">Sorry, No Partners Available!</div> : <Categories partnerCategories={partnerCategories} />}
 
         <div className="flex justify-center mt-16">
           <AppButton onClick={() => navigate("/register")} color="#F80B58">

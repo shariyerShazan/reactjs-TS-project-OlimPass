@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 
 type RedeemData = {
   id: string;
+  remainRedeems: number;
   registration: {
     firstName: string;
     lastName: string;
@@ -90,8 +91,8 @@ const handleDownloadPDF = () => {
     doc.text(`Discount: ${redeemData.partner.discount}`, 20, startY + 25);
     const redeemedAt = new Date(redeemData.redeemedAt);
     doc.text(`Redeemed At: ${redeemedAt.toLocaleString("en-US", options)}`, 20, startY + 35);
-
-    startY += 70; // Move below partner box
+doc.text(`Note: This PDF can be used only once.`, 20, startY + 45);
+startY += 85; // Move below partner box including the new line
 
     // ===== Member Section =====
     doc.setFillColor(boxColor);

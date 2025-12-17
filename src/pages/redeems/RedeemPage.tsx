@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import RedeemSuccess from "./_components/RedeemSuccess";
 import useGetCategories, { type Category, type Partner } from "@/hooks/useGetCategories";
-import useSingleGetCategory from "@/hooks/useSingleGetCategory";
+// import useSingleGetCategory from "@/hooks/useSingleGetCategory";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { BASE_URL } from "@/lib/baseUrl";
@@ -21,7 +21,11 @@ const [redeeming, setRedeeming] = useState(false);
   const [selectedBusiness, setSelectedBusiness] = useState<Partner | null>(null);
 
   const { categories, loading: categoriesLoading, error: categoriesError } = useGetCategories();
-  const { category: selectedCategory, loading: categoryLoading, error: categoryError } = useSingleGetCategory(selectedCategoryId);
+  // const { category: selectedCategory, loading: categoryLoading, error: categoryError } = useSingleGetCategory(selectedCategoryId);
+  const selectedCategory = categories.find(
+  (cat) => cat.id === selectedCategoryId
+) || null;
+
 
   const [redeemedId , setRedeemedId]= useState<string | null>(null); 
 
@@ -31,8 +35,8 @@ const [redeeming, setRedeeming] = useState(false);
 
   useEffect(() => {
     if (categoriesError) toast.error(categoriesError);
-    if (categoryError) toast.error(categoryError);
-  }, [categoriesError, categoryError]);
+    // if (categoryError) toast.error(categoryError);
+  }, [categoriesError]);
 
   const handleCategoryChange = (categoryId: string) => {
     setSelectedCategoryId(categoryId);
@@ -165,20 +169,18 @@ const handleRedeem = async () => {
                   value={selectedBusiness?.id || ""}
                   onChange={(e) => handleBusinessChange(e.target.value)}
                   className="w-full bg-[#2B2B2B] border border-transparent rounded-lg px-3 py-2 text-white text-sm focus:ring-1 focus:ring-[#F80B58] focus:outline-none"
-                  disabled={!selectedCategory || categoryLoading}
+                  disabled={!selectedCategory}
                 >
                   <option value="" disabled>
-                    {!selectedCategory
-                      ? "Select a category first"
-                      : categoryLoading
-                      ? "Loading businesses..."
-                      : "Select a business"}
-                  </option>
-                  {selectedCategory?.partners.map((partner) => (
-                    <option key={partner.id} value={partner.id}>
-                      {partner.name} - {partner.discount}
-                    </option>
-                  ))}
+                        {!selectedCategory ? "Select a category first" : "Select a business"}
+                      </option>
+
+                      {selectedCategory?.partners.map((partner) => (
+                        <option key={partner.id} value={partner.id}>
+                          {partner.name} - {partner.discount}
+                        </option>
+                      ))}
+
                 </select>
               </div>
             </div>

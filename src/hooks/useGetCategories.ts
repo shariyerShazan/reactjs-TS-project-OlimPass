@@ -9,6 +9,7 @@ export interface Partner {
   name: string;
   discount: string;
   categoryId: string;
+  maxRedeems: number;
 }
 
 export interface Category {

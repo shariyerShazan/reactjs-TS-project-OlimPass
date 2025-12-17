@@ -143,7 +143,10 @@ const handleDelete = async (id: string) => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-700">
-              {categories.map((category) => (
+
+              {
+                categories.length === 0 ?  <tr><td></td><td className="text-center text-gray-400 px-6 py-4">No Category Available</td></tr> :
+              categories.map((category) => (
                 <tr key={category.id} className="hover:bg-[#121212] transition-colors">
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{category.name}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-400">{category.partners?.length || 0}</td>
